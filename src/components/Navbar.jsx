@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
-import { Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Trophy, Users, ExternalLink } from 'lucide-react';
-import MagneticElement from './MagneticElement';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
+import MagneticElement from './MagneticElement.jsx';
+
 const Navbar = () => {
     const links = [
         { name: 'Experience', href: '#experience' },
@@ -28,7 +29,8 @@ const Navbar = () => {
                             OP
                         </a>
                     </MagneticElement>
-                    <div className="hidden md:flex gap-6">
+
+                    <div className="hidden md:flex gap-6 items-center">
                         {links.map((link, i) => (
                             <MagneticElement key={link.name} strength={0.25}>
                                 <motion.a
@@ -43,6 +45,21 @@ const Navbar = () => {
                                 </motion.a>
                             </MagneticElement>
                         ))}
+
+                        {/* Resume Download Button */}
+                        <MagneticElement strength={0.3}>
+                            <motion.a
+                                href="/Om_Patel_Resume.pdf"
+                                download="Om_Patel_Resume.pdf"
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.6 }}
+                                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+                            >
+                                <Download size={16} />
+                                Resume
+                            </motion.a>
+                        </MagneticElement>
                     </div>
                 </div>
             </MagneticElement>

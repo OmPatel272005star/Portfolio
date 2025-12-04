@@ -35,11 +35,13 @@ const EducationAchievements = () => {
                     </h2>
                     <div className="space-y-4">
                         {[
-                            { title: 'Smart India Hackathon 2024 Finalist', desc: 'PS 1659: Data Duplication Alert System' },
-                            { title: 'LeetCode Knight (1850)', desc: 'Consistent problem solver' },
-                            { title: 'Codeforces Pupil (1255)', desc: 'Competitive programming' }
+                            { title: 'Smart India Hackathon 2024 Finalist', desc: 'PS 1659: Data Duplication Alert System',link:'https://drive.google.com/file/d/1d8ups0IhgS6hDXl7wklePtHgXECs4c_j/view' },
+                            { title: 'LeetCode Knight Profile1', desc: 'Consistent problem solver' ,link:'https://leetcode.com/u/om272005patel/'},
+                            { title: 'LeetCode Knight Profile2', desc: 'Consistent problem solver' ,link:'https://leetcode.com/u/om_patel2005/'},
+                            { title: 'Codeforces Profile', desc: 'Competitive programming',link:'https://codeforces.com/profile/om_rajani' }
                         ].map((achievement, i) => (
                             <MagneticElement key={i} strength={0.15}>
+                                <a href={achievement.link} target="_blank" rel="noopener noreferrer">
                                 <motion.div
                                     initial={{ opacity: 0, x: 20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
@@ -53,6 +55,7 @@ const EducationAchievements = () => {
                                         <p className="text-sm text-gray-400">{achievement.desc}</p>
                                     </div>
                                 </motion.div>
+                                </a>
                             </MagneticElement>
                         ))}
                     </div>
