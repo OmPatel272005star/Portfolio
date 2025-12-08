@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-primary: #0f172a;
+  --color-secondary: #1e293b;
+  --color-accent: #38bdf8;
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-white overflow-x-hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Skill Icon Cards with Glow Effect */
+.skill-icon-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  min-width: 110px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.skill-icon-card:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: var(--skill-color);
+  box-shadow:
+    0 0 20px rgba(var(--skill-color-rgb), 0.3),
+    0 0 40px rgba(var(--skill-color-rgb), 0.2),
+    inset 0 0 20px rgba(var(--skill-color-rgb), 0.1);
+  transform: translateY(-4px);
+}
+
+.skill-icon {
+  color: var(--skill-color);
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 8px var(--skill-color));
+}
+
+.skill-icon-card:hover .skill-icon {
+  filter: drop-shadow(0 0 15px var(--skill-color));
+  transform: scale(1.1);
+}
+
+.skill-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #9CA3AF;
+  transition: color 0.3s ease;
+}
+
+.skill-icon-card:hover .skill-label {
+  color: white;
+}
